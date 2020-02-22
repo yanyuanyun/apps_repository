@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录界面</title>
+
+    <style>
+        body{
+            background: url("../images/background.jpg");
+            background-size: 100%;
+        }
+
+        div{
+            background-color: white;
+            height: 500px;
+            width: 600px;
+            margin-top: 50px;
+            margin-left: 30%;
+        }
+
+        table{
+            margin-left: 30%;
+            padding-top: 50px;
+        }
+
+        #sb{
+            margin-left: 30%;
+        }
+    </style>
+
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(function () {
+            $("#img1").click(function () {
+                var date1 = new Date();
+                var time = date1.getTime();
+                alert(time)
+                $("#img1").prop("src","/web/checkcode?"+time)
+            })
+        })
+    </script>
+</head>
+<body>
+
+<div>
+    <form action="/web/login" method="post">
+        <table>
+            <tr>
+                <td>用户名：</td>
+                <td><input type="text" name="username" placeholder="请输入用户名" id="username"><br></td>
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td><input type="password" name="password" placeholder="请输入密码" id="password"><br></td>
+            </tr>
+            <tr>
+                <td>验证码：</td>
+                <td><input type="text" name="check" placeholder="请输入验证码"><br></td>
+            </tr>
+            <tr>
+                <td colspan="2"><img src="/web/checkcode" id="img1"></td>
+            </tr>
+            <tr id="tr5">
+                <td colspan="2" id="td5"><input type="submit" value="登录" id="sb"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+</body>
+</html>
